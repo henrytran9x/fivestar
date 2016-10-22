@@ -57,7 +57,8 @@ class SettingsForm extends ConfigFormBase {
   public function submitForm(array &$form, FormStateInterface $form_state) {
     parent::submitForm($form, $form_state);
     $config = $this->config('fivestar.settings');
-    $config->set('tags', $form_state->getValue(array('tags', 'tags')));
+    //$config->set('tags', $form_state->getValue(array('tags', 'tags'))); // $form_state->getValue(array('tags','tags')) Can't get value element text field 'tags'
+    $config->set('tags', $form_state->getValue('tags'));
     $config->save();
   }
 
